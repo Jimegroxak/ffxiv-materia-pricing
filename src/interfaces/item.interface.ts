@@ -10,12 +10,14 @@ export interface MinListingDC {
 }
 
 export interface ApiResponse {
-    results: {
-        itemId: number;
-        nq: {
-            minListing: {
-                dc: MinListingDC
-            }
+    results: ResultItem | ResultItem[];
+}
+
+export interface ResultItem {
+    itemId: number;
+    nq: {
+        minListing: {
+            dc: MinListingDC
         }
     }
 }

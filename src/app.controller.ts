@@ -9,8 +9,8 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  getItemPrice(): Observable<ItemInfo> {
-    const response = this.appService.findItemPrice('5669', 'Dynamis');
+  getItemPrice(): Observable<ItemInfo> | undefined {
+    const response = this.appService.findItemPrice(['5669','5670'], 'Dynamis');
     return response
   }
 }
