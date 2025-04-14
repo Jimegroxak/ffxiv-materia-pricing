@@ -1,3 +1,6 @@
+# ffxiv-materia-pricing
+A NestJS backend that fetches the price of materia items in Final Fantasy XIV. I made this to help me save money while grinding out Zodiac Weapons
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
 </p>
