@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
 import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
 import { AxiosResponse } from 'axios';
@@ -9,6 +10,7 @@ import {
   itemNameMap,
   worldNameMap,
 } from './interfaces/item.interface';
+
 
 @Injectable()
 export class AppService {
@@ -24,6 +26,7 @@ export class AppService {
     itemID: String | String[],
     worldDcRegion: String,
   ): Observable<ItemInfo[]> {
+    //worldName = $.csv.toObject
     return this.httpService
       .get(
         `https://universalis.app/api/v2/aggregated/${worldDcRegion}/${itemID.toString()}`,
@@ -42,6 +45,7 @@ export class AppService {
               worldName:
                 worldNameMap.get(result.nq.minListing.dc.worldId as Number) ||
                 'Unknown world',
+
             },
           }));
         }),
