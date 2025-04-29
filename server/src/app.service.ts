@@ -10,11 +10,14 @@ import {
   itemNameMap,
   worldNameMap,
 } from './interfaces/item.interface';
+import { CSVService } from 'utils/csv-utils/csv.service';
 
 
 @Injectable()
 export class AppService {
-  constructor(private readonly httpService: HttpService) { }
+  constructor(private readonly httpService: HttpService,
+    private readonly csvService: CSVService
+  ) { }
 
   findAll(): Observable<any> {
     return this.httpService
@@ -26,7 +29,7 @@ export class AppService {
     itemID: String | String[],
     worldDcRegion: String,
   ): Observable<ItemInfo[]> {
-    //worldName = $.csv.toObject
+    this.csvService.parseCSV()
     return this.httpService
       .get(
         `https://universalis.app/api/v2/aggregated/${worldDcRegion}/${itemID.toString()}`,
